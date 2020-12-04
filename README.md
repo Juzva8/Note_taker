@@ -15,7 +15,7 @@
   To install necessary dependencies, run the following command:
 ```
 
-  you have to navigate to file using your terminal and run comand npm i.
+  You have to navigate to file using your terminal and run comand npm i.
 
 ```
 ## Usage

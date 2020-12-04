@@ -1,26 +1,21 @@
-const app = require("express").Router()
-const storage = ("../db/storage")
-    // it grabs funcion that we create in storage.js
-
-app.get("/notes", (req, res) => {
-    storage.grabNotes().then((notes) => res.json(notes))
-        .catch((err) => res.status(500).json(err))
-
-
+const router = require("express").Router();
+const store = require("../db/store");
+router.get("/notes", (req, res) => {
+    store
+        .getNotes()
+        .then((notes) => res.json(notes))
+        .catch((err) => res.status(500).json(err));
 });
-
-// else {
-//     waitListData.push(req.body);
-//     res.json(false);
-// }
-// });
-
-
-// app.post("/api/clear", function(req, res) {
-
-//     tableData.length = 0;
-//     waitListData.length = 0;
-
-//     res.json({ ok: true });
-// });
-module.exports = app
+router.post("/notes", (req, res) => {
+    store
+        .addNote(req.body)
+        .then((note) => res.json(note))
+        .catch((err) => res.status(500).json(err));
+});
+router.delete("/notes/:id", (req, res) => {
+    store
+        .removeNote(req.params.id)
+        .then(() => res.json({ ok: true }))
+        .catch((err) => res.status(500).json(err));
+});
+module.exports = router;

@@ -21,6 +21,11 @@
 ## Usage
 
 navigate to file using your terminal and run comand node server.js after that go to your browser and use this app.
+
+## Link to deployed version of the app
+
+https://juzva8.github.io/Note_taker/
+
 ## License
   This project is licensed under the Boost Software License 1.0 license.
 ```
